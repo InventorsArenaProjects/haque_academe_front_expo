@@ -1,0 +1,17 @@
+export const LOGIN = "/student/login"
+export const SLIDERS = "/sliders"
+export const VIDEOS = "/videos"
+export const YOUTUBE_VIDEOS = "/videos/search/$1"
+export const SUBJECTS = "/subjects"
+export const COURSES = "/mcq-tests/"
+export const TESTRESULT = "/desc-test/submit-test/"
+export const MCAQUES = "/mcq-test/"
+export const NOTES = "/notes/"
+export const MCQTEST = "/mcq-test/submit-answer"
+export const MCQTESTSUBMIT = "/mcq-test/submit-test"
+export const DOWNLOADNOTES = "/notes/t/1/s/1"
+export const SAQTEST = "/desc-tests/";
+export const SAQTESTINFO = "/desc-test/"
+export const SAQTESTSUBMIT = "/desc-test/submit-test/"
+export const GETTESTRESULT = "/test/results/";
+export const GET_TEACHERS = "/student/teachers";
