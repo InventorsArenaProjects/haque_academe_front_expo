@@ -16,9 +16,9 @@ import {
 // ------------ Third Party Components ------------ 
 // import Swiper from 'react-native-swiper';
 // import LinearGradient from 'react-native-linear-gradient';
-// import Ionicons from 'react-native-vector-icons/Ionicons';
-// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // ------------ Custom Components ------------ 
 import { subjects } from '../helpers/Request';
 import Header from '../components/Header';

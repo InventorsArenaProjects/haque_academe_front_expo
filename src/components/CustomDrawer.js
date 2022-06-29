@@ -12,7 +12,6 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import color from '../globalStyles/color'
 import logout from '../context/actions/logout'
 import { GlobalContext } from '../context/Provider';
-
 // ------------ Constants ------------
 const W = Dimensions.get('window').width;
 const H = Dimensions.get('window').height;

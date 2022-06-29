@@ -14,6 +14,7 @@ import React, { useState, useEffect } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import DocumentPicker from 'react-native-document-picker';
 import CountDown from 'react-native-countdown-component';
+import Entypo from "react-native-vector-icons/Entypo";
 // ------------ Custom Components ------------
 import { DASHBOARD } from '../constants/routeNames'
 import Header from '../components/Header';
@@ -36,6 +37,9 @@ const SaqQuestions = ({ navigation, route }) => {
 
   // -------------- OPEN PDF AND UPLOAD FUNCTION --------------
   const submitAnswerHandler = async () => {
+    // useEffect(() => {
+    //   console.warn(route.params.quesId)
+    // },[])
     try {
       if (answer && answer.name !== "No selected file") {
         setNoSheetErr("");
@@ -121,7 +125,8 @@ const SaqQuestions = ({ navigation, route }) => {
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "rgba(0,0,0,0.7)",
-        }}>
+
+        }}  >
           <View style={{
             height: H / 1.8,
             width: W / 1.1,
@@ -129,7 +134,12 @@ const SaqQuestions = ({ navigation, route }) => {
             backgroundColor: "white",
             justifyContent: "space-between",
             alignItems: "center",
+            // backgroundColor: "red"
           }}>
+            <Entypo name="cross" size={25} color={'grey'} style={{ position: "absolute", right: 15, top: 15 }} onPress={() => {
+              setSendAnswer(false)
+            }
+            } />
             <View style={{ width: "87%", alignItems: "center", justifyContent: "center", marginTop: "5%" }}>
               <Text style={{ textAlign: "center", width: "79%", fontSize: 18, color: "grey", fontWeight: "bold" }}>Select your answer PDF and press submit button</Text>
             </View>

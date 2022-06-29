@@ -15,6 +15,8 @@ const YoutubeList = ({ data, noData }) => {
         }}>
             {data.length !== 0 ?
                 <FlatList
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
                     data={data}
                     renderItem={(item) => (<YoutubeListItem data={item} key={item.id} />)}
                     keyExtractor={(item) => item.id}

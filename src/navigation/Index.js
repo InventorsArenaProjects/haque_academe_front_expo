@@ -9,13 +9,15 @@ import AppNavigator from './AppNavigator'
 
 import { GlobalContext } from '../context/Provider';
 
+
 const Navigator = () => {
     const { authDispatch, authState: { isLoggedIn } } = useContext(GlobalContext);
-    // ------------------------- RENDER -------------------------
+    // ------------------------- RENDER ------------------------- 
     return (
         <NavigationContainer>
             {/* check phone no and password   */}
             {isLoggedIn ? <AppNavigator /> : <AuthNavigator />}
+            {/* <AuthNavigator /> */}
         </NavigationContainer>
     )
 }

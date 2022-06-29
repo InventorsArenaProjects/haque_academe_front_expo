@@ -19,6 +19,7 @@ const BottomTab = ({ navigation }) => {
             inactiveColor="#000000"
             barStyle={{ backgroundColor: '#00000' }}
         >
+
             <Tab.Screen
                 name="Dashboard"
                 component={Dashboard}

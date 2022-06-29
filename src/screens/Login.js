@@ -19,7 +19,7 @@ const Login = ({ navigation, route }) => {
         hidden={false}
         backgroundColor={color.colorPrimary}
       />
-      <ScrollView style={styles.container} keyboardShouldPersistTaps={'handled'}>
+      <ScrollView style={styles.container} keyboardShouldPersistTaps={"always"}>
         <View style={styles.imgContainer}>
           <Image style={styles.headerimage} source={require('../assets/images/edulogo.png')}></Image>
           <Text style={styles.brandName}>Hawk Academe</Text>
@@ -50,3 +50,4 @@ const styles = StyleSheet.create({
   }
 })
 export default Login;
+

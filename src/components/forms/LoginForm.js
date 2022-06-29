@@ -1,7 +1,7 @@
 // ---------------- System Components ---------------- 
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState, useContext } from 'react'
-
+import { useNavigation } from '@react-navigation/native'
 // ---------------- Third Party Components ---------------- 
 import Entypo from "react-native-vector-icons/Entypo";
 
@@ -17,12 +17,11 @@ import FormBtn from '../commons/buttons/FormBtn'
 import login from '../../context/actions/login'
 // state 
 import { GlobalContext } from '../../context/Provider';
-// -------------- Constants --------------
-let W = Dimensions.get('window').width;
-let H = Dimensions.get('window').height;
 
 // ======================= RENDER ======================= 
-const LoginForm = ({ course_id }) => {
+const LoginForm = ({course_id}) => {
+    const navigation = useNavigation();
+    
     // set default states
     const [form, setForm] = useState({}); //set user given data 
     const [invalidErr, setInvalidErr] = useState({}); // set validation errors
@@ -32,7 +31,7 @@ const LoginForm = ({ course_id }) => {
 
     // function called when form was submited 
     const onSubmit = async () => {
-        let isValid = false;
+        let isValid=false;
 
         if (!form.email || form.email.trim() === '') {
             setInvalidErr((prev) => {
@@ -59,8 +58,8 @@ const LoginForm = ({ course_id }) => {
         }
 
         if (isValid) {
-            login({ ...form, course_id })(authDispatch);
-        }
+            login({...form, course_id})(authDispatch); 
+        } 
     }
 
     // function called when written every single word 
@@ -93,25 +92,24 @@ const LoginForm = ({ course_id }) => {
         <FormContainer style={{ paddingTop: "2%", paddingBottom: "10%" }}>
             <View style={styles.container}>
                 <View style={styles.loginHeading}>
-                    <Text style={{ fontWeight: "bold", fontSize: 18 }}>Please login here</Text>
+                    <Text style={{fontWeight:"bold", fontSize: 18}}>Please login here</Text>
                 </View>
                 {/* email input */}
                 <Input
                     logo={<Entypo name="email" size={20} color={'grey'} />}
                     placeholder="Email"
                     changeListener={(value) => onChange("email", value)}
-                    styleContainer={{ borderRadius: 8, height: H/15 }}
-                    styleInput={{ borderRadius: 8, height: H/15 }}
+                    styleContainer={{ borderRadius: 8 }}
+                    styleInput={{ borderRadius: 8 }}
                     errMsg={invalidErr.email}
                 />
-
                 {/* password input */}
                 <SecureInput
                     logo={<Entypo name="key" size={20} color={'grey'} />}
                     changeListener={(value) => onChange("password", value)}
                     placeholder={"Your password"}
-                    styleContainer={{ marginTop: "5%", borderRadius: 8, height: H/15 }}
-                    styleInput={{ borderRadius: 8, height: H/15 }}
+                    styleContainer={{ marginTop: "5%", borderRadius: 8 }}
+                    styleInput={{ borderRadius: 8 }}
                     errMsg={invalidErr.password}
                 />
 
@@ -123,11 +121,11 @@ const LoginForm = ({ course_id }) => {
                     style={{ marginTop: 45 }}
                     isLoading={authState.loading}
                 />
-                {/* <View style={styles.forgotPasBtn}>
+                <View style={styles.forgotPasBtn}>
                     <TouchableOpacity style={{ marginRight: '2%', marginTop: 15 }} onPress={() => { navigation.navigate('ForgotPassword') }}>
                         <Text style={{ color: '#a2a6a3' }}>Forgot Password?</Text>
                     </TouchableOpacity>
-                </View> */}
+                </View>
             </View>
         </FormContainer>
     )

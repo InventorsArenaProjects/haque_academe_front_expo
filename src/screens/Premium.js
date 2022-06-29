@@ -2,14 +2,14 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, Dimensions, Text, StatusBar, ScrollView, TouchableHighlight, TouchableOpacity, TextInput, Image, SafeAreaView } from 'react-native';
 // ------------ Third Party Components ------------ 
-// import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 // import LinearGradient from 'react-native-linear-gradient';
-// import AntDesign from 'react-native-vector-icons/AntDesign';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 // ------------ Custom Components ------------ 
 import Header from '../components/Header';
-import Payment from '../components/Payment';
+// import Payment from '../components/Payment';
 import Btn from "../components/commons/buttons/Btn";
 import color from "../globalStyles/color";
 
@@ -21,7 +21,7 @@ let H = Dimensions.get('window').height;
 const Premium = ({ navigation, route }) => {
     console.log(route.params)
     return (
-        <ScrollView keyboardShouldPersistTaps={'always'}>
+        <ScrollView keyboardShouldPersistTaps={true}>
             <Header
                 pageName="Buy This Course"
                 iconName="arrow-back"
@@ -54,7 +54,7 @@ const Premium = ({ navigation, route }) => {
                         </View>
                     </View>
                     <View style={styles.bodyBtn}>
-                        <Payment totalPrice={100 * (Number(route.params.price) - Number(route.params.price) * (Number(route.params.discount) / 100))} />
+                        {/* <Payment totalPrice={100 * (Number(route.params.price) - Number(route.params.price) * (Number(route.params.discount) / 100))} /> */}
                     </View>
                 </View>
             </View>
@@ -65,6 +65,7 @@ const Premium = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
+
     header: {
         width: "100%",
         height: H / 3,
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
         marginHorizontal: "8%",
         marginTop: "15%"
     },
-    priceBox: {
+    priceBox:{
         flexDirection: "row",
         justifyContent: "space-between",
         marginTop: "3%"

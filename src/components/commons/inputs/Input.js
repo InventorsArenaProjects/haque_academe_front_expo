@@ -12,6 +12,7 @@ const Input = ({ label, placeholder, value = '', type, changeListener, styleInpu
 
     return (
         <>
+
             <View style={[styles.wrapper, styleContainer]}>
                 {label && <Text>{label}</Text>}
                 <View style={[styleInput, errMsg && errMsg !== null && styles.invalidInput, styles.inpWrapper]}>
@@ -31,6 +32,7 @@ const Input = ({ label, placeholder, value = '', type, changeListener, styleInpu
                         editable={isEditable?true:isEditable}
                     />
                 </View>
+
             </View>
             {errMsg && errMsg !== null && <Text style={styles.invalidMsg}>{errMsg}</Text>}
         </>

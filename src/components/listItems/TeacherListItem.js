@@ -13,7 +13,6 @@ let H = Dimensions.get('window').height;
 
 const TeacherListItem = ({ data }) => {
     const navigation = useNavigation();
-
     const setTeacher = async () => {
         await AsyncStorage.setItem("teacher_id", data.item.teacher_id);
         navigation.replace(DASHBOARD);

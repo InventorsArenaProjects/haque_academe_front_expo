@@ -416,7 +416,7 @@ const Question = ({ navigation, route }) => {
                 {/* //------------------------- */}
                 <>
                   <TestResultModal showResult={showResult} showResultHandler={showResultHandler} mcqResult={mcqResult} />
-                  <TestMenuModal showMenu={modalVisible} showMenuHandler={showMenuHandler} questions={questions} />
+                  <TestMenuModal showMenu={modalVisible} showMenuHandler={showMenuHandler} questions={questions} changeQuestionHandler={changeQuestionHandler} />
                 </>
                 {/* //--------------------------------------------------------------------- */}
                 <TouchableOpacity onPress={() => setModalVisible(true)}>

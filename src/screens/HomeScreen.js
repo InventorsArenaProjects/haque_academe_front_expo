@@ -108,7 +108,7 @@ const HomeScreen = ({ navigation }) => {
               showHideTransition={"slide"}
               hidden={false} />
 
-            <ScrollView keyboardShouldPersistTaps={'handled'}>
+            <ScrollView keyboardShouldPersistTaps={true}>
               <View style={styles.logoContainer}>
                 <Image
                   style={styles.headerimage}
@@ -116,7 +116,9 @@ const HomeScreen = ({ navigation }) => {
               </View>
               <View style={styles.courcesContainer}>
                 {CoursesArray.map((item) => (
-                  <CourceCard key={item.courseID} navLink={() => navLink(item.courseID)} cardData={item} />
+                  <>
+                    <CourceCard key={item.courseID} navLink={() => navLink(item.courseID)} cardData={item} />
+                  </>
                 ))}
               </View>
             </ScrollView>

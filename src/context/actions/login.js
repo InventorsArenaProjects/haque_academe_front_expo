@@ -15,28 +15,22 @@ const rememberUser = async (token, course_id, email, password) => {
     }
 }
 
-const a = async () => {
-    try {
-        await AsyncStorage.removeItem('token');
-        await AsyncStorage.removeItem('course_id');
-        await AsyncStorage.removeItem('email');
-        await AsyncStorage.removeItem('password');
-        // await AsyncStorage.setItem('token', token);
-        // await AsyncStorage.setItem('course_id', course_id);
-        // await AsyncStorage.setItem('email', email);
-        // await AsyncStorage.setItem('password', password);
-
-    } catch (error) {
-        console.log(error);
-    }
-}
-
 export default (creds) => (authDispatch) => {
+    const storeUserData = async (studData) => {
+        await AsyncStorage.setItem("studName", studData.fullname);
+        await AsyncStorage.setItem("studMob", studData.phone);
+        await AsyncStorage.setItem("studEmail", studData.email);
+    }
     authDispatch({
         type: LOGIN_LOADING,
     });
     login(creds).then((res) => {
+        // console.log("0000000000000000000000000");
+        // console.log(res);
+        // console.warn("Login Data =>",res.data.data.data)
+
         if (res.status) {
+            storeUserData(res.data.data.data)
             // set user in asyncronus storage
             rememberUser(res.data.data.token, creds.course_id, creds.email, creds.password).then(() => {
                 authDispatch({
@@ -67,7 +61,7 @@ export default (creds) => (authDispatch) => {
 
             Alert.alert(
                 "Invalid Credentials",
-                "Please check your credentials45",
+                "Please check your credentials",
                 [
                     { text: "OK", onPress: () => console.log("OK Pressed") }
                 ]
@@ -87,6 +81,7 @@ export default (creds) => (authDispatch) => {
             "Something went wrong to login.",
             [
                 { text: "OK", onPress: () => console.log("OK Pressed") }
+
             ]
         );
     })

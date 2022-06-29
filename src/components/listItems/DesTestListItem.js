@@ -13,7 +13,6 @@ const H = Dimensions.get('window').height;
 
 
 const DesTestListItem = ({ data }) => {
-
     const navigation = useNavigation();
     let timeArr = data.item.time.split(":");
     

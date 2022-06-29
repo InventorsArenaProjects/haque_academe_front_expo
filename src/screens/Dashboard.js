@@ -3,22 +3,16 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  Text,
-  StatusBar,
   ScrollView,
-  TouchableOpacity,
-  TextInput,
-  Image,
-  SafeAreaView,
   ActivityIndicator,
 } from 'react-native';
 // import Swiper from 'react-native-swiper';
 // import LinearGradient from 'react-native-linear-gradient';
-// import Ionicons from 'react-native-vector-icons/Ionicons';
-// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-// import DrawerTab from '../navigation/DrawerTab';
-// import HttpHandler from '../utils/HttpHandler';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import DrawerTab from '../navigation/DrawerTab';
+import HttpHandler from '../utils/HttpHandler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { sliders } from '../helpers/Request';
 import Slider from '../components/Slider';
 //Header
@@ -52,7 +46,7 @@ const Dashboard = ({ navigation, route }) => {
     {
       name: 'Your Live Class',
       imgLink: require('../assets/images/liveclass.png'),
-      navLink: () => navigation.navigate("DescriptiveTest"),
+      navLink: () => navigation.navigate("LiveClass"),
     },
   ];
   //--FETCHING SLIDER IMAGES (START)
@@ -67,7 +61,20 @@ const Dashboard = ({ navigation, route }) => {
   //--FETCHING SLIDER IMAGES (END)
   useEffect(() => {
     fetchSliders();
+    // getDataFromStorage();
+    studDataRecover();
   }, []);
+
+  const studDataRecover = async () => {
+    let studName = await AsyncStorage.getItem('studName');
+    console.warn(studName)
+  }
+
+  // const getDataFromStorage = async () => {
+  //   let teacher_id =  await AsyncStorage.getItem('teacher_id');
+  //   console.warn("Dahboard -----> "+ teacher_id);
+  // }
+
 
   // console.warn(data[0].id)
 

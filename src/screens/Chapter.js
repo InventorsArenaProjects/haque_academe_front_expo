@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   Dimensions,
+  Text
 } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { notes } from '../helpers/Request';
 
 import Header from '../components/Header';
 import Screen from '../components/Screen';
 
-import NoteList from '../components/lists/NoteList'
+// import NoteList from '../components/lists/NoteList'
 
 let W = Dimensions.get('window').width;
 let H = Dimensions.get('window').height;
@@ -20,7 +21,8 @@ const Chapter = ({ navigation, route }) => {
 
   const retriveNotes = async () => {
     try {
-      const res = await notes(route.params.id);
+      let teacher_id = await AsyncStorage.getItem('teacher_id');
+      const res = await notes(teacher_id,route.params.id);
       // console.log(data);
       console.log(res.status && res.data.data !== null);
       if (res.status && res.data.data !== null) {
@@ -39,7 +41,7 @@ const Chapter = ({ navigation, route }) => {
   useEffect(() => {
     retriveNotes();
   }, []);
-  
+
   return (
     <Screen>
       <Header
@@ -47,7 +49,7 @@ const Chapter = ({ navigation, route }) => {
         iconName="arrow-back"
         navLink={() => navigation.goBack()}
       />
-      <NoteList data={data} noData={noData} />
+      {/* <NoteList data={data} noData={noData} /> */}
     </Screen>
   );
 };

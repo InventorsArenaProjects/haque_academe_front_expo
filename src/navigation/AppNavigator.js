@@ -1,6 +1,6 @@
 import React from 'react';
 // import {createStackNavigator} from '@react-navigation/stack';
-import Dashboard from '../screens/Dashboard';
+// import Dashboard from '../screens/Dashboard';
 import MockTest from '../screens/MockTest';
 import YourNotes from '../screens/YourNotes';
 import DescriptiveTest from '../screens/DescriptiveTest';
@@ -14,6 +14,7 @@ import Premium from '../screens/Premium';
 import MenuQuestion from '../screens/MenuQuestion';
 import SaqQuestions from '../screens/SaqQuestions';
 import Teachers from '../screens/Teachers';
+import LiveClass from '../screens/LiveClass';
 // import NotePdf from '../screens/PDF'
 
 // import BottomTab from './BottomTab';
@@ -43,6 +44,7 @@ const AppNavigator = () => {
             <Stack.Screen name="Premium" component={Premium} />
             <Stack.Screen name="MenuQuestion" component={MenuQuestion} />
             <Stack.Screen name="saqQuestions" component={SaqQuestions} />
+            <Stack.Screen name="LiveClass" component={LiveClass} />
         </Stack.Navigator>
     );
 };

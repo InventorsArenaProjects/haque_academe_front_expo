@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Dimensions, Text, StatusBar, ScrollView, TouchableOpacity, TextInput, Image, SafeAreaView } from 'react-native';
 // import Swiper from 'react-native-swiper';
 // import LinearGradient from 'react-native-linear-gradient';
-// import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Header from '../components/Header'
 

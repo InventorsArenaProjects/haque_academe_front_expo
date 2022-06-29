@@ -18,8 +18,8 @@ const Card = ({cardName, imgLink, navLink}) => {
         style={{
           width: '40%',
           height: '100%',
-          justifyContent: "center",
-          alignItems: cardName === "Your Notes" ? "flex-start" : 'center',
+          justifyContent: 'center',
+          alignItems: cardName === 'Your Notes' ? 'flex-start' : 'center',
         }}>
         <Image style={styles.img} source={imgLink}></Image>
       </View>
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   img: {
-    height: '80%',
-    width: '80%',
+    height: '85%',
+    width: '75%',
   },
   textContainer: {
     width: '60%',

@@ -3,7 +3,7 @@ import React from 'react'
 
 import Entypo from 'react-native-vector-icons/Entypo';
 
-const TestMenuModal = ({ showMenu, showMenuHandler, questions }) => {
+const TestMenuModal = ({ showMenu, showMenuHandler, questions,changeQuestionHandler }) => {
     return (
         <Modal
             animationType="fade"
@@ -249,7 +249,7 @@ const TestMenuModal = ({ showMenu, showMenuHandler, questions }) => {
                                 width: '100%',
                                 backgroundColor: 'white',
                             }}>
-                            <TouchableOpacity
+                            {/* <TouchableOpacity
                                 style={{
                                     backgroundColor: '#9E1510',
                                     width: '40%',
@@ -259,7 +259,7 @@ const TestMenuModal = ({ showMenu, showMenuHandler, questions }) => {
                                     borderRadius: 7,
                                 }}>
                                 <Text style={{ color: 'white' }}> Submit Test</Text>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
                     </View>
                 </View>

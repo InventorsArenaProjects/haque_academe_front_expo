@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   StyleSheet,
@@ -9,14 +9,14 @@ import {
   Image,
 } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { courses, testresult } from '../helpers/Request';
+import {courses, testresult} from '../helpers/Request';
 //Header
 import Header from '../components/Header';
 //Screen
 import Screen from '../components/Screen';
 let W = Dimensions.get('window').width;
 let H = Dimensions.get('window').height;
-const MockTestStart = ({ navigation, route }) => {
+const MockTestStart = ({navigation, route}) => {
   const [course, setCourse] = useState([]);
 
   useEffect(() => {
@@ -26,19 +26,25 @@ const MockTestStart = ({ navigation, route }) => {
   const retriveCourse = async () => {
     try {
       const courseId = route.params.courseId;
-      const { data } = await courses(courseId);
+      const {data} = await courses(courseId);
       setCourse(data.data);
-      const response = await testresult(data.data.id)
+      const response = await testresult(data.data.id);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
-  const startTestHandler = (isPaid,id,cou) => {
+  const startTestHandler = (isPaid, id, cou) => {
     if (isPaid !== '0') {
       navigation.navigate('Premium', cou);
     } else {
-      let timeArr = cou.time.split(":");
-      navigation.navigate('Question', { quesId: id, quesTime:  Number(timeArr[0]) * 60 * 60 + Number(timeArr[1]) * 60 + Number(timeArr[2])});
+      let timeArr = cou.time.split(':');
+      navigation.navigate('Question', {
+        quesId: id,
+        quesTime:
+          Number(timeArr[0]) * 60 * 60 +
+          Number(timeArr[1]) * 60 +
+          Number(timeArr[2]),
+      });
     }
   };
   return (
@@ -48,16 +54,17 @@ const MockTestStart = ({ navigation, route }) => {
         iconName="arrow-back"
         navLink={() => navigation.goBack()}
       />
-      <View style={{ width: '100%', alignItems: 'center' }}>
+      <View style={{width: '100%', alignItems: 'center', marginBottom: 100}}>
         <ScrollView>
           {/* <View style={styles.body}> */}
           {course.length !== 0 ? (
             course.map(cou => (
               <View key={cou.id} style={styles.container}>
+                {/* <Text>Hellooo!!</Text> */}
                 <View
                   style={{
                     justifyContent: 'space-between',
-                    height: 170,
+                    height: 160,
                   }}>
                   <View
                     style={{
@@ -82,7 +89,6 @@ const MockTestStart = ({ navigation, route }) => {
                       <Text style={styles.subTitleText}>
                         Time: {cou.time} mints
                       </Text>
-                      {/* /////////////////////// */}
                       {cou.is_paid !== '0' ? (
                         <View
                           style={{
@@ -95,14 +101,14 @@ const MockTestStart = ({ navigation, route }) => {
                             name="crown"
                             size={25}
                             color={'#DAA520'}
-                            onPress={() => navigation.navigate('Premium', {cou : cou})}
+                            onPress={() =>
+                              navigation.navigate('Premium', {cou: cou})
+                            }
                           />
                         </View>
                       ) : (
                         <Text></Text>
                       )}
-
-                      {/* /////////////////////// */}
                     </View>
                   </View>
                   <View
@@ -116,7 +122,9 @@ const MockTestStart = ({ navigation, route }) => {
                     <TouchableOpacity
                       style={styles.btn}
                       activeOpacity={0.8}
-                      onPress={() => startTestHandler(cou.is_paid,cou.id,cou)}>
+                      onPress={() =>
+                        startTestHandler(cou.is_paid, cou.id, cou)
+                      }>
                       <Text
                         style={{
                           fontWeight: 'bold',
@@ -159,7 +167,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    height: '85%',
+    height: '90%',
     width: '65%',
     marginTop: '6%',
   },
