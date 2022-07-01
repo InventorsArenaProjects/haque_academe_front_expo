@@ -34,20 +34,23 @@ const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.height
   },
+
   imgContainer: {
     height: H / 3.5,
     justifyContent: "center",
     alignItems: "center"
   },
+
   headerimage: {
     height: 130,
     resizeMode: "contain",
     marginLeft: 35
   },
+
   brandName: {
     fontSize: 20,
     fontWeight: "bold"
   }
+
 })
 export default Login;
-

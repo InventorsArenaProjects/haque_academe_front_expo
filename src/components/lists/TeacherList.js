@@ -16,9 +16,10 @@ const TeacherList = ({ data, noData }) => {
             {data.length !== 0 ?
                 <FlatList
                     data={data}
-                    renderItem={(item) => (<TeacherListItem data={item} key={item.item.data.id} />)}
+                    renderItem={(item) => (<TeacherListItem data={item} key={item.item.data[0].id} />)}
                     keyExtractor={(item) => item.data.id}
-                /> :
+                />
+                :
                 !noData ?
                     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                         <ActivityIndicator size="large" color="blue" />

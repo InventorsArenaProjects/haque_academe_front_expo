@@ -1,47 +1,31 @@
-/**
- * Copyright (c) 2017-present, Wonday (@wonday.org)
- * All rights reserved.
- *
- * This source code is licensed under the MIT-style license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-import React from 'react';
-import { StyleSheet, Dimensions, View } from 'react-native';
+import { View, Text , Dimensions, StyleSheet} from 'react-native'
+import React from 'react'
 import Pdf from 'react-native-pdf';
 
-export default class NotePdf extends React.Component {
-    render() {
-        const source = { uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true };
-        //const source = require('./test.pdf');  // ios only
-        //const source = {uri:'bundle-assets://test.pdf' };
-        //const source = {uri:'file:///sdcard/test.pdf'};
-        //const source = {uri:"data:application/pdf;base64,JVBERi0xLjcKJc..."};
-        //const source = {uri:"content://com.example.blobs/xxxxxxxx-...?offset=0&size=xxx"};
-        //const source = {uri:"blob:xxxxxxxx-...?offset=0&size=xxx"};
-
-        return (
-            <View style={styles.container}>
-                <Pdf
-                    source={source}
-                    onLoadComplete={(numberOfPages, filePath) => {
-                        console.log(`Number of pages: ${numberOfPages}`);
-                    }}
-                    onPageChanged={(page, numberOfPages) => {
-                        console.log(`Current page: ${page}`);
-                    }}
-                    onError={(error) => {
-                        console.log(error);
-                    }}
-                    onPressLink={(uri) => {
-                        console.log(`Link pressed: ${uri}`);
-                    }}
-                    style={styles.pdf} />
-            </View>
-        )
-    }
+const PDF = () => {
+    const source = { uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true };
+    return (
+        <View style={styles.container}>
+            <Pdf
+                source={source}
+                // onLoadComplete={(numberOfPages, filePath) => {
+                //     console.log(`Number of pages: ${numberOfPages}`);
+                // }}
+                // onPageChanged={(page, numberOfPages) => {
+                //     console.log(`Current page: ${page}`);
+                // }}
+                // onError={(error) => {
+                //     console.log(error);
+                // }}
+                // onPressLink={(uri) => {
+                //     console.log(`Link pressed: ${uri}`);
+                // }}
+                style={styles.pdf} />
+        </View>
+    )
 }
 
+export default PDF
 const styles = StyleSheet.create({
     container: {
         flex: 1,

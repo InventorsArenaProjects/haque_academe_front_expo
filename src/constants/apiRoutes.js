@@ -16,3 +16,4 @@ export const SAQTESTSUBMIT = "/desc-test/submit-test/"
 export const GETTESTRESULT = "/test/results/";
 export const GET_TEACHERS = "/student/teachers";
 export const CHANGE_PASSWORD = "/student/change-password";
+export const GET_ROUTINE = "/routine";

@@ -1,24 +1,25 @@
 import HttpHandler from '../utils/HttpHandler';
 // import env from '../config/env';
 
-import {LOGIN} from '../constants/apiRoutes';
-import {SLIDERS} from '../constants/apiRoutes';
-import {VIDEOS} from '../constants/apiRoutes';
-import {YOUTUBE_VIDEOS} from '../constants/apiRoutes';
-import {SUBJECTS} from '../constants/apiRoutes';
-import {COURSES} from '../constants/apiRoutes';
-import {MCAQUES} from '../constants/apiRoutes';
-import {NOTES} from '../constants/apiRoutes';
-import {MCQTEST} from '../constants/apiRoutes';
-import {MCQTESTSUBMIT} from '../constants/apiRoutes';
-import {DOWNLOADNOTES} from '../constants/apiRoutes';
-import {TESTRESULT} from '../constants/apiRoutes';
-import {SAQTEST} from '../constants/apiRoutes';
-import {SAQTESTINFO} from '../constants/apiRoutes';
-import {SAQTESTSUBMIT} from '../constants/apiRoutes';
-import {GETTESTRESULT} from '../constants/apiRoutes';
-import {GET_TEACHERS} from '../constants/apiRoutes';
-import {CHANGE_PASSWORD} from '../constants/apiRoutes';
+import { LOGIN } from '../constants/apiRoutes';
+import { SLIDERS } from '../constants/apiRoutes';
+import { VIDEOS } from '../constants/apiRoutes';
+import { YOUTUBE_VIDEOS } from '../constants/apiRoutes';
+import { SUBJECTS } from '../constants/apiRoutes';
+import { COURSES } from '../constants/apiRoutes';
+import { MCAQUES } from '../constants/apiRoutes';
+import { NOTES } from '../constants/apiRoutes';
+import { MCQTEST } from '../constants/apiRoutes';
+import { MCQTESTSUBMIT } from '../constants/apiRoutes';
+import { DOWNLOADNOTES } from '../constants/apiRoutes';
+import { TESTRESULT } from '../constants/apiRoutes';
+import { SAQTEST } from '../constants/apiRoutes';
+import { SAQTESTINFO } from '../constants/apiRoutes';
+import { SAQTESTSUBMIT } from '../constants/apiRoutes';
+import { GETTESTRESULT } from '../constants/apiRoutes';
+import { GET_TEACHERS } from '../constants/apiRoutes';
+import { CHANGE_PASSWORD } from '../constants/apiRoutes';
+import { GET_ROUTINE } from '../constants/apiRoutes';
 
 const http = new HttpHandler(
   'https://inventorsarena.com/projects/haque_academy/api',
@@ -127,3 +128,6 @@ export const getTestResult = testId => {
 export const changePassword = data => {
   return http.postDataWithToken(CHANGE_PASSWORD, data);
 };
+
+// --------------------- Routine --------------------- 
+export const getRoutine = (classId, teacherId, studentId) => (http.getDataWithToken(GET_ROUTINE.concat('/c/', classId, '/t/', teacherId, '/s/', studentId)));

@@ -72,9 +72,7 @@ export default (creds) => (authDispatch) => {
         authDispatch({
             type: LOGIN_FAIL,
             pyload: error
-        })
-
-        console.log(error);
+        });
 
         Alert.alert(
             "Please try again later",

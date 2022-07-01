@@ -16,7 +16,6 @@ const Teachers = () => {
         try {
             // loading ...
             let res = await getTeachers();
-            console.warn(res.data.data);
             // End Loading ...
             if (res.status) {
                 setData(res.data.data);

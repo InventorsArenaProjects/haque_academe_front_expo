@@ -14,7 +14,7 @@ import React from 'react';
 import ListContainer from '../commons/containers/ListContainer';
 import NoteListItem from '../listItems/NoteListItem';
 
-const NoteList = ({data, noData}) => {
+const NoteList = ({navigation, data, noData}) => {
   return (
     <ListContainer
       style={{
@@ -27,7 +27,7 @@ const NoteList = ({data, noData}) => {
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           data={data}
-          renderItem={item => <NoteListItem data={item} key={item.id} />}
+          renderItem={item => <NoteListItem data={item} key={item.id} navigation={navigation} />}
           keyExtractor={item => item.index}
         />
       ) : !noData ? (

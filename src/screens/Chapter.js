@@ -10,7 +10,7 @@ import { notes } from '../helpers/Request';
 import Header from '../components/Header';
 import Screen from '../components/Screen';
 
-// import NoteList from '../components/lists/NoteList'
+import NoteList from '../components/lists/NoteList'
 
 let W = Dimensions.get('window').width;
 let H = Dimensions.get('window').height;
@@ -23,8 +23,7 @@ const Chapter = ({ navigation, route }) => {
     try {
       let teacher_id = await AsyncStorage.getItem('teacher_id');
       const res = await notes(teacher_id,route.params.id);
-      // console.log(data);
-      console.log(res.status && res.data.data !== null);
+
       if (res.status && res.data.data !== null) {
         setData(res.data.data);
         setNoData(false);
@@ -49,7 +48,7 @@ const Chapter = ({ navigation, route }) => {
         iconName="arrow-back"
         navLink={() => navigation.goBack()}
       />
-      {/* <NoteList data={data} noData={noData} /> */}
+      <NoteList data={data} noData={noData} navigation={navigation} />
     </Screen>
   );
 };

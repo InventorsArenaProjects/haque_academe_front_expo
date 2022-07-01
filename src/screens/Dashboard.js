@@ -67,7 +67,6 @@ const Dashboard = ({ navigation, route }) => {
 
   const studDataRecover = async () => {
     let studName = await AsyncStorage.getItem('studName');
-    console.warn(studName)
   }
 
   // const getDataFromStorage = async () => {
